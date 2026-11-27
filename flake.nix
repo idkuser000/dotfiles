@@ -1,7 +1,8 @@
-# ./flake.nix
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
     firefox = {
       url = "github:nix-community/flake-firefox-nightly";

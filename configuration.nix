@@ -117,7 +117,6 @@
     pkgs.kdePackages.discover
     pkgs.kdePackages.partitionmanager
     pkgs.kdePackages.kcolorchooser
-    pkgs.kdePackages.qtwayland
     pkgs.kdePackages.bluedevil
     pkgs.kdePackages.kup
 
@@ -130,6 +129,9 @@
     pkgs.git
     pkgs.distrobox
     pkgs.icoutils
+    ## Vulkan
+    pkgs.vulkan-loader
+    pkgs.vulkan-tools
 
     # Applications
     pkgs.umu-launcher
@@ -141,9 +143,11 @@
     ## Wine
     pkgs.wineWow64Packages.waylandFull
   ];
-
   programs.fish.enable = true;
   programs.firefox.enable = true;
+  ## Enable Appimages
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
 
   # Flatpak
   services.flatpak.enable = true;
@@ -160,6 +164,11 @@
     dockerCompat = true;
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # Services
   # services.openssh.enable = true;
 
@@ -167,4 +176,3 @@
   system.stateVersion = "26.11";
 
 }
-
